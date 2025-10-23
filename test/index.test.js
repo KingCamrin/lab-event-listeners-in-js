@@ -4,13 +4,18 @@ global.TextEncoder = TextEncoder
 global.TextDecoder = TextDecoder
 
 const { resetDOM } = require('./helpers')
-const {
+let changeBackgroundColor, resetBackgroundColor, displayKeyPress, displayUserInput, setupEventListeners
+let _module = require('../index.js')
+if (_module && _module.default && typeof _module.default === 'object') {
+  _module = _module.default
+}
+({
   changeBackgroundColor,
   resetBackgroundColor,
   displayKeyPress,
   displayUserInput,
   setupEventListeners,
-} = require('../index.js')
+} = _module)
 
 describe('Event Handling Tests', () => {
   beforeEach(() => {
